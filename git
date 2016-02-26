@@ -1,0 +1,101 @@
+- git branch new_branch_name
+    Creates a new branch off the current branch locally
+
+- git checkout branch_name
+    Switches to another branch
+
+- git checkout-b branch_name
+    Creates a new branch locally and switches to it
+
+- git fetch origin branch_name
+- git checkout branch_name
+    Fetches the remote branch and puts it in origin/branch_name,
+    then creates a local branch with the same name and switches to it
+
+- git fetch
+    Fetches all the remote branches and puts them in origin/*
+
+- git merge branch_name
+    Merges the specified branch to the current branch
+
+- git checkout -- .
+    Removes every unstaged files
+
+- git add -u
+    Adds all unstaged files (not the untracked ones)
+
+- git clean
+    Removes untracked files
+
+- git clean -n
+    Dry-run of git clean
+
+- git clean -f
+    Runs "git clean" on current directory (only files)
+
+- git clean -f <path>
+    Runs "git clean" on specified directory (only files)
+
+- git clean -df
+    Runs "git clean" on current directory (both files and directories)
+
+- git rm --cached -r .
+    Removes all the files recursively in the current directory (only from the index; local file-system remains unchanged)
+
+- git reset
+    Undoes changes (look at https://www.atlassian.com/git/tutorials/undoing-changes/git-reset for more details)
+
+- git revert 0e23d4a
+    Safe way to undo commit 0e23d4a (refer to the above link)
+
+- git branch -d local_branch
+    Deletes the local branch
+
+- git push origin branch_name
+    Pushes local branch to a remote branch with the same name
+
+- git push origin local_branch:remote_branch
+    Pushes a local branch to a different remote branch
+
+- git push origin :remote_branch
+    Deletes a remote branch (careful!!!)
+
+- git stash
+    Takes all modified tracked files and puts them on stack of unfinished changes
+
+- git stash apply
+    Brings back the stashed file from top of the stack to the working directory
+
+- git stash drop
+    Deletes the stashed files from the top of the stack
+
+- git stash pop
+    One command for "git stash apply" + "git stash drop"
+
+- git remote set-url abc http://xyz.git
+    Creates/updates the url for remote abc
+
+- git remote add origin https://github.com/user/repo.git
+    Adds a remote with origin name
+
+- git remote -v
+    Lists all remotes
+
+- git commit --amend
+    Adds the staged files to the previous commit
+    (make sure you haven’t pushed the previous commit to origin)
+
+- git reset 0e23d4a
+    Moves the current branch tip backward to commit 0e23d4a:
+    reset the staging changes
+    leave unstaged changes alone
+
+- git reset --hard 0e23d4a
+    Resets both staged and unstaged changes
+
+- git cherry-pick <full hash of commit>
+    Adds changes introduced in the commit
+
+- git cherry-pick A..B
+    Adds changes introduced in range of commits after A til B (inclusive)
+
