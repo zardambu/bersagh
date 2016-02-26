@@ -81,6 +81,9 @@
 - git remote -v
     Lists all remotes
 
+- git remote rm remoteName
+    Remove remote
+
 - git commit --amend
     Adds the staged files to the previous commit
     (make sure you haven’t pushed the previous commit to origin)
