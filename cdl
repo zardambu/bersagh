@@ -1,0 +1,11 @@
++-----------+
+|  Section  |
++-----------+
+
+- Declarations in sections include:
+    + Default currency
+    + Inception date
+    + Expiration date
+    + Line of business
+        * it shows this section belongs to which lob. It doesn't have any effect on contract/section payout.
+        * when 'contract index table' is built, there will be a mapping of section id to lob

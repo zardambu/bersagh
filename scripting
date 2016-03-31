@@ -1,0 +1,20 @@
++-----------+
+|    SED    |
++-----------+
+
+- sed s'/pattern/replacement/' <oldFile >newFile
+- & is used for the replacement pattern
+    meaning: the matched pattern
+- \1 first remembered pattern, \2 second remembered pattern, ...
+
+
+
+Examples:
+
+# copy and rename file name with different extensions
+#   e.g.: (1.cdl, 1.exp, 1.claim => sub-schedule.cdl, sub-schedule.exp, sub-schedule.claim)
+
+    ls 1.* | sed 's/1\(.*\)/cp & sub-schedule\1/' | bash
+
+    ls 1.* | sed 's/1\(.*\)/cp & 6\1/' | bash
+
