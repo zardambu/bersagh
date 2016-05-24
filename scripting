@@ -6,7 +6,12 @@
 - & is used for the replacement pattern
     meaning: the matched pattern
 - \1 first remembered pattern, \2 second remembered pattern, ...
-
+- ? means non-greedy
+    .*? is everything non-greedy
+- flag 'd' is for delete
+    sed '/pattern/d' input_file > output_file
+- flag '-i.bak' is for edit in place
+    sed -i.bak '/pattern/d' input_file
 
 
 Examples:
@@ -15,6 +20,33 @@ Examples:
 #   e.g.: (1.cdl, 1.exp, 1.claim => sub-schedule.cdl, sub-schedule.exp, sub-schedule.claim)
 
     ls 1.* | sed 's/1\(.*\)/cp & sub-schedule\1/' | bash
+    ls 10.* | sed 's/10\(.*\)/cp & 11\1/' | bash
+    ls 2.* | sed 's/2\(.*\)/cp & 3\1/' | bash
 
-    ls 1.* | sed 's/1\(.*\)/cp & 6\1/' | bash
+# delete subject line in all cdl files in all directories
+    for file in $(find . -name '*cdl')
+    do
+        sed '/.*[S|s]ubject.*/d' $file > $file.temp
+        mv $file.temp $file
+    done
 
+    or simply:
+        sed -i.bak '/.*[S|s]ubject.*/d' *
+
+
+
++------------+
+|    Bash    |
++------------+
+
+- for & if statements
+    + Note: there has to be space between condition and square bracket
+
+    # delete all branches except develop
+        for branch in $(git branch)
+        do
+            if [ $branch != develop ] && [ $branch != "*" ]
+            then
+                git branch -D $branch
+            fi
+        done
