@@ -21,6 +21,12 @@
 - git checkout -- .
     Removes every unstaged files
 
+- git reset
+    Un-stages all staged files
+
+- git reset HEAD <file_name>
+    Un-stages the specified file
+
 - git add -u
     Adds all unstaged files (not the untracked ones)
 
@@ -44,6 +50,14 @@
 
 - git reset
     Undoes changes (look at https://www.atlassian.com/git/tutorials/undoing-changes/git-reset for more details)
+
+- git reset 0e23d4a
+    Moves the current branch tip backward to commit 0e23d4a:
+    reset the staging changes
+    leave un-staged changes alone
+
+- git reset --hard 0e23d4a
+    Resets both staged and unstaged changes
 
 - git revert 0e23d4a
     Safe way to undo commit 0e23d4a (refer to the above link)
@@ -72,6 +86,25 @@
 - git stash pop
     One command for "git stash apply" + "git stash drop"
 
+- git stash save "name of your choice"
+    Stashes the changes and saves it as the specified name
+
+- git stash list
+    Lists the name of different stashes on the stack
+
+- git stash apply stash@{n}
+    Applies the nth saved stash
+
+- git stash show
+    Display the changes of the latest stash in file level granularity
+
+- git stash show -p
+    Displays the changes withing the files
+
+- git stash show stash@{n}
+- git stash show stash@{n} -p
+    Display the changes in the nth saved stash
+
 - git remote set-url abc http://xyz.git
     Creates/updates the url for remote abc
 
@@ -87,14 +120,6 @@
 - git commit --amend
     Adds the staged files to the previous commit
     (make sure you haven’t pushed the previous commit to origin)
-
-- git reset 0e23d4a
-    Moves the current branch tip backward to commit 0e23d4a:
-    reset the staging changes
-    leave unstaged changes alone
-
-- git reset --hard 0e23d4a
-    Resets both staged and unstaged changes
 
 - git cherry-pick <full hash of commit>
     Adds changes introduced in the commit
@@ -122,3 +147,8 @@ cat ~/.gitconfig
         lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
         lgall = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 
+
+GitHub compare series of commits:
+    + `https://github.com/TEAM/REPO/compare/START…END`
+    + START and END are hash of the commits
+    + (START, END] => start not included

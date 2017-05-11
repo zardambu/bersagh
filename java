@@ -13,3 +13,5 @@
     -> long term persistence ... class internal design might change => breaking encapsulation
     -> security ... any object you have a reference to could be serialized and its internal could be accessible
     -> For more info checkout "Effective Java 2nd Edition", "Item 74: Implement Serializable judiciously."
+
+

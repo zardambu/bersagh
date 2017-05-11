@@ -1,0 +1,4 @@
+Surplus share treaty
+    line        -> the limit up to which the ceding insurer retains liabilities
+    capacity    -> the amount of risk the reinsurer covers
+                   Note: it's usually expressed in terms of multiple of the insurer's lines
